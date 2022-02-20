@@ -8,8 +8,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import {useSelector, useDispatch} from 'react-redux';
-
 import {doc, setDoc} from '@firebase/firestore';
 import {db} from '../HomeScreen/HomeScreen';
 
@@ -29,12 +27,13 @@ import {
 } from './StyledSignUpScreen';
 
 import SteveJobsIcon from '../../assets/SteveJobsIcon.jpg';
+import {useSelector} from 'react-redux';
 
 function SignUpScreen({route, navigation}: any) {
   const [modalVisible, setModalVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  const {loggedUser} = route.params;
+  const loggedUser = useSelector((state: any) => state.logged.logged);
 
   async function addUpgraded() {
     try {
@@ -46,6 +45,7 @@ function SignUpScreen({route, navigation}: any) {
         await setDoc(upgradedRef, {
           upgraded,
         });
+        navigation.navigate('Home');
 
         setIsLoading(false);
       }
@@ -72,7 +72,7 @@ function SignUpScreen({route, navigation}: any) {
 
   return (
     <StyledMainView>
-      <StyledGobackButton onPress={() => navigation.goBack()}>
+      <StyledGobackButton onPress={() => navigation.navigate('Home')}>
         <Icon name="arrowleft" size={30} color="#7a58fa" />
       </StyledGobackButton>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
