@@ -112,7 +112,11 @@ function HomeScreen({navigation}: any) {
         <>
           <LoginInput setIsLoading={setIsLoading} />
           {isLoading ? (
-            <ActivityIndicator size="large" color="#000" style={{}} />
+            <ActivityIndicator
+              size="large"
+              color="#000"
+              style={{marginTop: 20}}
+            />
           ) : null}
         </>
       )}

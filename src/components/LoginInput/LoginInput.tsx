@@ -10,10 +10,9 @@ import {
 import firebaseConfig from '../../config/firebase/firebaseConfig';
 import {getFirestore, initializeFirestore} from 'firebase/firestore';
 import {initializeApp} from 'firebase/app';
+import Button from '../Button/Button';
 
 import {
-  StyledButtonText,
-  StyledSignInButton,
   StyledText,
   StyledTextInput,
   StyledTextInputView,
@@ -22,6 +21,7 @@ import {
 import {useDispatch} from 'react-redux';
 
 import {changeLoggedIn} from '../../Redux/actions/upgrade-action';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const app = initializeApp(firebaseConfig);
 
@@ -110,9 +110,12 @@ function LoginInput({setIsLoading}: ILogin) {
             style={{
               alignItems: 'center',
             }}>
-            <StyledSignInButton onPress={createUser}>
-              <StyledButtonText>Criar conta</StyledButtonText>
-            </StyledSignInButton>
+            <Button
+              onPress={createUser}
+              icon={<Icon name="login" size={28} color="#f075b6" />}
+              children="Criar conta"
+            />
+
             <TouchableOpacity onPress={() => setIsCreateAccount(false)}>
               <StyledText style={{marginTop: 40}}>Já possui conta?</StyledText>
             </TouchableOpacity>
@@ -124,9 +127,11 @@ function LoginInput({setIsLoading}: ILogin) {
             style={{
               alignItems: 'center',
             }}>
-            <StyledSignInButton onPress={signInUser}>
-              <StyledButtonText>Login</StyledButtonText>
-            </StyledSignInButton>
+            <Button
+              onPress={signInUser}
+              children="Login"
+              icon={<Icon name="login" size={28} color="#f075b6" />}
+            />
             <TouchableOpacity onPress={() => setIsCreateAccount(true)}>
               <StyledText style={{marginTop: 40}}>Criar conta</StyledText>
             </TouchableOpacity>

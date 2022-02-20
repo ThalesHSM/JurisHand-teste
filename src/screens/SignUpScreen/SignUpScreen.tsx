@@ -2,14 +2,10 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import {
-  StyledGobackButton,
-  StyledMainView,
-  StyledText,
-  StyledUpgradeNowButton,
-} from './StyledSignUpScreen';
+import {StyledGobackButton, StyledMainView} from './StyledSignUpScreen';
 
 import UpgradeCard from '../../components/UpgradeCard/UpgradeCard';
+import Button from '../../components/Button/Button';
 
 function SignUpScreen({navigation}: any) {
   const [modalVisible, setModalVisible] = useState(true);
@@ -20,9 +16,11 @@ function SignUpScreen({navigation}: any) {
         <Icon name="arrowleft" size={30} color="#7a58fa" />
       </StyledGobackButton>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <StyledUpgradeNowButton onPress={() => setModalVisible(true)}>
-          <StyledText>Faça upgrade agora!</StyledText>
-        </StyledUpgradeNowButton>
+        <Button
+          onPress={() => setModalVisible(true)}
+          children="Faça upgrade agora!"
+          color="blue"
+        />
       </View>
       <UpgradeCard
         setModalVisible={setModalVisible}

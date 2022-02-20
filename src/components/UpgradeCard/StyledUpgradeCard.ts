@@ -75,13 +75,3 @@ export const StyledBottomText = styled.Text`
   text-align: center;
   font-weight: bold;
 `;
-
-export const StyledUpgradeButton = styled.TouchableOpacity`
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 80px;
-  border-width: 3px;
-  background-color: #f6f6f9;
-  border-color: #f075b6;
-`;

@@ -29,16 +29,6 @@ export const StyledCloseButtonView = styled.View`
   position: absolute;
   z-index: 1;
 `;
-export const StyledUpgradeNowButton = styled.TouchableOpacity`
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 80px;
-  border-width: 3px;
-  border-radius: 20px;
-  background-color: #f6f6f9;
-  border-color: #7a58fa;
-`;
 
 export const StyledImage = styled.Image`
   width: 180px;
@@ -48,23 +38,10 @@ export const StyledImage = styled.Image`
   border-color: #fff;
 `;
 
-export const StyledTextView = styled.View`
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-`;
-
 export const StyledTitle = styled.Text`
   color: #000;
   font-weight: bold;
   font-size: 25px;
-  text-align: center;
-`;
-
-export const StyledText = styled.Text`
-  color: #606975;
-  font-size: 20px;
   text-align: center;
 `;
 

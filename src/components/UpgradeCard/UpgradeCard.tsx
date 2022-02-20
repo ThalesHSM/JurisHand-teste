@@ -15,11 +15,11 @@ import {
   StyledText,
   StyledTextView,
   StyledTitle,
-  StyledUpgradeButton,
 } from './StyledUpgradeCard';
 
 import SteveJobsIcon from '../../assets/SteveJobsIcon.jpg';
 import {useSelector} from 'react-redux';
+import Button from '../Button/Button';
 
 interface IUpgradeCard {
   modalVisible: boolean;
@@ -114,9 +114,8 @@ function UpgradeCard({
               {'\n'}(R$24,90 por mês)
             </StyledText>
 
-            <StyledUpgradeButton onPress={addUpgraded}>
-              <StyledText style={{color: '#f075b6'}}>Assine agora</StyledText>
-            </StyledUpgradeButton>
+            <Button onPress={addUpgraded} children="Assine agora" />
+
             {isLoading ? <ActivityIndicator size="large" color="#000" /> : null}
           </StyledTextView>
         </StyledModalView>
