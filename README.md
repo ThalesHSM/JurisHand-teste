@@ -49,7 +49,7 @@ APP_ID=
 
 + Adicione o provedor E-mail/senha do Firebase dentro de: Authentication / Sign-in Method
 
-+ Yarn start
++ npx react-native run-android
 
 ## Imagens do Projeto
 
