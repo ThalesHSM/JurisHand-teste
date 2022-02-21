@@ -1,10 +1,31 @@
+import {initializeApp} from 'firebase/app';
+import {getAuth} from 'firebase/auth';
+import {getFirestore, initializeFirestore} from 'firebase/firestore';
+
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APP_ID,
+} from '@env';
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyD1eRQ-9UK7SXXW8j5h-AzzwoDtdNJY_GM',
-  authDomain: 'modal-e30f8.firebaseapp.com',
-  projectId: 'modal-e30f8',
-  storageBucket: 'modal-e30f8.appspot.com',
-  messagingSenderId: '994429539655',
-  appId: '1:994429539655:web:cf1b36c854a2e853c26862',
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
 };
 
-export default firebaseConfig;
+const app = initializeApp(firebaseConfig);
+
+initializeFirestore(app, {experimentalForceLongPolling: true});
+
+const db = getFirestore(app);
+const auth = getAuth();
+
+export {app, auth};
+export default db;

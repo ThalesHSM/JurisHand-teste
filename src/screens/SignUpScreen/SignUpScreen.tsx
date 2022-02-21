@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 import {StyledGobackButton, StyledMainView} from './StyledSignUpScreen';
 
-import UpgradeCard from '../../components/UpgradeCard/UpgradeCard';
+import UpgradeModal from '../../components/UpgradeModal/UpgradeModal';
 import Button from '../../components/Button/Button';
 
 function SignUpScreen({navigation}: any) {
@@ -22,7 +22,7 @@ function SignUpScreen({navigation}: any) {
           color="blue"
         />
       </View>
-      <UpgradeCard
+      <UpgradeModal
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}
         navigation={navigation}

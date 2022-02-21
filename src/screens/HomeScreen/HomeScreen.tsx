@@ -2,16 +2,9 @@ import React, {useCallback, useState} from 'react';
 import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import {getAuth, signOut} from 'firebase/auth';
+import {signOut} from 'firebase/auth';
 
-import firebaseConfig from '../../config/firebase/firebaseConfig';
-import {
-  doc,
-  getDoc,
-  getFirestore,
-  initializeFirestore,
-} from 'firebase/firestore';
-import {initializeApp} from 'firebase/app';
+import {doc, getDoc} from 'firebase/firestore';
 
 import {
   StyledButtonText,
@@ -22,14 +15,9 @@ import {
 } from './StyledHomeScreen';
 import {useDispatch, useSelector} from 'react-redux';
 import {useFocusEffect} from '@react-navigation/native';
-import {changeLoggedIn} from '../../Redux/actions/upgrade-action';
+import {changeLoggedIn} from '../../redux/actions/upgrade-action';
 import LoginInput from '../../components/LoginInput/LoginInput';
-
-const app = initializeApp(firebaseConfig);
-
-initializeFirestore(app, {experimentalForceLongPolling: true});
-
-export const db = getFirestore(app);
+import db, {auth} from '../../config/firebase/firebaseConfig';
 
 function HomeScreen({navigation}: any) {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +28,6 @@ function HomeScreen({navigation}: any) {
   const dispatch = useDispatch();
 
   function Logout() {
-    const auth = getAuth();
     signOut(auth)
       .then(() => {
         dispatch(changeLoggedIn(''));
@@ -63,10 +50,6 @@ function HomeScreen({navigation}: any) {
 
           if (getFirebaseItems.exists()) {
             setIsUpgradedUser(true);
-
-            return;
-          } else {
-            return;
           }
         }
       }

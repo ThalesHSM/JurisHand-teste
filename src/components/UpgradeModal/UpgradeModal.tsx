@@ -3,8 +3,8 @@ import {Modal, TouchableOpacity, Alert, ActivityIndicator} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import {doc, setDoc} from '@firebase/firestore';
-import {db} from '../../screens/HomeScreen/HomeScreen';
 
+import db from '../../config/firebase/firebaseConfig';
 import {
   StyledBottomText,
   StyledCenteredView,
@@ -15,23 +15,23 @@ import {
   StyledText,
   StyledTextView,
   StyledTitle,
-} from './StyledUpgradeCard';
+} from './StyledUpgradeModal';
 
 import SteveJobsIcon from '../../assets/SteveJobsIcon.jpg';
 import {useSelector} from 'react-redux';
 import Button from '../Button/Button';
 
-interface IUpgradeCard {
+interface IUpgradeModal {
   modalVisible: boolean;
   setModalVisible: any;
   navigation: any;
 }
 
-function UpgradeCard({
+function UpgradeModal({
   modalVisible,
   setModalVisible,
   navigation,
-}: IUpgradeCard) {
+}: IUpgradeModal) {
   const [isLoading, setIsLoading] = useState(false);
 
   const loggedUser = useSelector((state: any) => state.logged.logged);
@@ -128,4 +128,4 @@ function UpgradeCard({
     </Modal>
   );
 }
-export default UpgradeCard;
+export default UpgradeModal;

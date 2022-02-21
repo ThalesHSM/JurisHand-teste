@@ -2,14 +2,10 @@ import React, {useState} from 'react';
 import {Alert, TouchableOpacity, View} from 'react-native';
 
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
-import firebaseConfig from '../../config/firebase/firebaseConfig';
-import {getFirestore, initializeFirestore} from 'firebase/firestore';
-import {initializeApp} from 'firebase/app';
 import Button from '../Button/Button';
 
 import {
@@ -20,14 +16,9 @@ import {
 
 import {useDispatch} from 'react-redux';
 
-import {changeLoggedIn} from '../../Redux/actions/upgrade-action';
+import {changeLoggedIn} from '../../redux/actions/upgrade-action';
 import Icon from 'react-native-vector-icons/AntDesign';
-
-const app = initializeApp(firebaseConfig);
-
-initializeFirestore(app, {experimentalForceLongPolling: true});
-
-export const db = getFirestore(app);
+import {auth} from '../../config/firebase/firebaseConfig';
 
 interface ILogin {
   setIsLoading: any;
@@ -42,8 +33,6 @@ function LoginInput({setIsLoading}: ILogin) {
   const dispatch = useDispatch();
 
   function createUser() {
-    const auth = getAuth();
-
     const trimEmail = email.replace('\n', '').trim();
     setIsLoading(true);
 
@@ -64,8 +53,6 @@ function LoginInput({setIsLoading}: ILogin) {
       });
   }
   function signInUser() {
-    const auth = getAuth();
-
     const trimEmail = email.replace('\n', '').trim();
     setIsLoading(true);
 
