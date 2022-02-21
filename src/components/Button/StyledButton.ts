@@ -10,6 +10,7 @@ interface IText {
   color?: 'blue' | 'pink';
 }
 export const StyledButton = styled.TouchableOpacity<IButton>`
+  align-self: center;
   align-items: center;
   justify-content: center;
   width: 200px;

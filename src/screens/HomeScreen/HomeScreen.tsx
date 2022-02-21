@@ -83,9 +83,15 @@ function HomeScreen({navigation}: any) {
               ) : (
                 <TouchableOpacity
                   onPress={() => navigation.navigate('SignUp')}
-                  style={{flexDirection: 'row', marginTop: 30}}>
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: 30,
+                    marginLeft: 30,
+                  }}>
                   <Icon name="sync" size={28} color="grey" />
-                  <StyledGreyText>Faça upgrade agora</StyledGreyText>
+                  <StyledGreyText style={{marginLeft: 10}}>
+                    Faça upgrade agora
+                  </StyledGreyText>
                 </TouchableOpacity>
               )}
             </>

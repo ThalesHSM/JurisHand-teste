@@ -23,13 +23,14 @@ export const StyledH1Text = styled.TextInput`
   font-weight: bold;
   font-size: 30px;
   margin-top: 30px;
+  margin-left: 30px;
 `;
 
 export const StyledGreyText = styled.Text`
   color: grey;
   font-weight: bold;
   font-size: 20px;
-  margin-left: 20px;
+  margin-left: 35px;
 `;
 
 export const StyledSignInButton = styled.TouchableOpacity`
@@ -53,5 +54,4 @@ export const StyledButtonText = styled.Text`
 export const StyledMainView = styled.SafeAreaView`
   flex: 1;
   background-color: white;
-  padding-left: 30px;
 `;

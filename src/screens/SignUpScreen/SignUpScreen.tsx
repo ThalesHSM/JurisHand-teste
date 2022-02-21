@@ -15,7 +15,12 @@ function SignUpScreen({navigation}: any) {
       <StyledGobackButton onPress={() => navigation.navigate('Home')}>
         <Icon name="arrowleft" size={30} color="#7a58fa" />
       </StyledGobackButton>
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <Button
           onPress={() => setModalVisible(true)}
           children="Faça upgrade agora!"

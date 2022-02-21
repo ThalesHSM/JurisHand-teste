@@ -6,6 +6,7 @@ export const StyledText = styled.Text`
 
 export const StyledTextInputView = styled.View`
   width: 100%;
+  align-items: center;
 `;
 
 export const StyledTextInput = styled.TextInput`
